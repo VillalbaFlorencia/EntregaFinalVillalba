@@ -1,0 +1,30 @@
+{% extends 'index/index.html' %}
+
+{% block 'header_block' %}
+<ul>
+    <li><a href= {% url 'crear_recomendacion_pelicula' %}>Crear recomendación de Pelicula</a></li>
+    <li><a href={% url 'busqueda_peliculas' %}>Buscar recomendaciones de Peliculas</a></li>
+</ul>
+{% endblock 'header_block' %}
+
+{% block body_block %}
+
+    <h3>Recomendaciones de películas:</h3>
+
+    {% for pelicula in object_list %}
+        <li>
+            {{pelicula}}
+            <p>
+                <a href={% url 'detalle_pelicula' pelicula.id %}>Leer más</a>
+                <a href={% url 'editar_pelicula' pelicula.id %}>Editar</a>
+                <a href={% url 'borrar_pelicula' pelicula.id %}>Borrar</a>
+            </p>
+        </li>
+    {% endfor %}
+        {% if object_list %}
+            Número de recomendaciones: {{ object_list|length }}
+        {% else %}
+            No existen recomendaciones aún.
+        {% endif %}
+
+{% endblock body_block %}

@@ -1,0 +1,30 @@
+{% extends 'index/index.html' %}
+
+{% block 'header_block' %}
+<ul>  
+    <li><a href={% url 'crear_recomendacion_serie' %}>Crear Recomendación de Serie</a></li>
+    <li><a href={% url 'busqueda_series' %}>Buscar recomendaciones de Series</a></li>
+</ul>
+{% endblock 'header_block' %}
+
+{% block body_block %}
+
+    <h3>Recomendaciones de series:</h3>
+
+    {% for serie in lista_series %}
+        <li>
+            {{serie}}
+            <p>
+                <a href={% url 'actualizar_recomendacion_serie' serie.id %}>Editar</a>
+                <a href={% url 'borrar_recomendacion_serie' serie.id %}>Borrar</a>
+                <a href={% url 'datos_series' serie.id %}>Leer más</a>
+            </p>
+        </li>
+    {% endfor %}
+        {% if lista_series %}
+            Número de recomendaciones: {{ lista_series|length }}
+        {% else %}
+            No existen recomendaciones aún.
+        {% endif %}
+
+{% endblock body_block %}

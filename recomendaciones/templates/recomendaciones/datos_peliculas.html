@@ -1,0 +1,17 @@
+{% extends 'index/index.html' %}
+
+{% block 'header_block' %}
+{% endblock 'header_block' %}
+
+{% block body_block %}
+    {% if object.netflix == True %}
+        Esta pelicula se encuenta en Netflix
+    {% else %} 
+        Esta pelicula no se encuentra en Netflix
+    {% endif %}
+        <li>Nombre: {{object.nombre}}</li>
+        <li>Categoría: {{object.categoria}}</li> 
+        <li>Descripción de la pelicula: {{object.descripcion | safe }}</li>    
+        <li>Fecha creación: {{object.fecha}}</li>
+        <li>Autor: {{object.author}}</li>
+{% endblock body_block %}

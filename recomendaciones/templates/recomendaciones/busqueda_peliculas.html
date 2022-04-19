@@ -1,0 +1,26 @@
+{% extends 'index/index.html' %}
+
+{% block 'header_block' %}
+{% endblock 'header_block' %}
+
+{% block body_block %}
+
+<h3>Buscá recomendaciones de peliculas realizadas por otros usuarios</h3>
+<p></p>
+
+<form action="" method = 'get'>
+    {% csrf_token %}
+    <table>
+        {{form.as_table}}
+    </table>
+    <p></p>
+    <button>Buscar</button>
+</form>
+
+<p></p>
+
+{% for pelicula in peliculas %}
+    <li>{{pelicula}}</li>
+{% endfor %}
+
+{% endblock body_block %}

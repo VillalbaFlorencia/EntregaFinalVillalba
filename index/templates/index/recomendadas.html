@@ -1,0 +1,17 @@
+{% comment %} {% extends 'index/index.html' %}
+
+
+    {% block header_text_block %}
+        <h1 class="mb-5">Bienvenidos a nuestra sección de series recomendadas</h1>
+        <h2>Te dejamos un adelanto de nuestro top 5!</h2>
+    {% endblock header_text_block %}
+
+
+
+{% block body_block %}
+    
+    {% for valor in lista %}
+        <h2><li>{{valor}}</li></h2>
+    {% endfor %}
+    
+{% endblock body_block %} {% endcomment %}
