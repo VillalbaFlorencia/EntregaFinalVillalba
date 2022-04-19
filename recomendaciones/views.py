@@ -24,7 +24,7 @@ def crear_recomendacion_serie(request):
     form = SerieFormulario()
     return render(request, 'recomendaciones/crear_recomendacion_serie.html', {'form' : form})
 
-
+@login_required
 def busqueda_series(request):
     
     nombre_a_buscar = request.GET.get('nombre', None)
@@ -37,7 +37,7 @@ def busqueda_series(request):
     form = SerieBusqueda()
     return render(request, 'recomendaciones/busqueda_series.html', {'form': form, 'series': series})
 
-
+@login_required
 def busqueda_peliculas(request):
     
     nombre_a_buscar = request.GET.get('nombre', None)
@@ -59,7 +59,8 @@ def lista_series(request):
         request, 'recomendaciones/lista_series.html',
         {'lista_series': lista_series}
     )
-    
+
+@login_required    
 def actualizar_recomendacion_serie(request, id):
     
     serie = Series.objects.get(id = id)
@@ -88,6 +89,7 @@ def actualizar_recomendacion_serie(request, id):
         {'form' : form, 'serie': serie}
     )    
 
+@login_required
 def borrar_recomendacion_serie(request,id):
     serie = Series.objects.get(id = id)
     serie.delete()
