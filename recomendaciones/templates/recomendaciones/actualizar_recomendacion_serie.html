@@ -12,6 +12,7 @@
 <form action={% url 'actualizar_recomendacion_serie' serie.id %} method = 'post'>
     {% csrf_token %}
     <table>
+        {{form.media}}
         {{form.as_table}}
     </table>
     <p></p>
