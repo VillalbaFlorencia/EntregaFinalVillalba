@@ -15,7 +15,7 @@
         <li>Apellido: {{request.user.last_name}}</li>
         <li>Email: {{request.user.email}}</li>
         <li>Imagen: <img src="{{request.user.avatar.imagen.url}}" alt="imagen de perfil"></li>
-        {% comment "" %}<li>{{request.user.Avatar.link}}</li>{% endcomment %}
+        <li>{{request.user.Avatar.link}}</li>
     </p>
 
     <a href={% url 'editar' %}>Editar datos</a>
